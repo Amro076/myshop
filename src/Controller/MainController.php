@@ -2,9 +2,12 @@
 
 namespace App\Controller;
 
+use DateTime;
 use App\Entity\Product;
+use App\Form\ProductType;
 use App\Repository\ProductRepository;
-use Symfony\Component\BrowserKit\Request;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -20,23 +23,47 @@ class MainController extends AbstractController
     #[Route('/home', name:'produit_home')]
     public function home(ProductRepository $repo)
     {   
-        $product = $repo->findAll();
+        $products = $repo->findAll();
         return $this->render('main/home.html.twig');
     }
     
-    // #[Route('/show/', name:'product_show')]
-    // public function show(Product $product)
-    // {   
+    #[Route('/show/', name:'product_show')]
+    public function show(Product $product)
+    {   
         
-    //     return $this->render('main/show.html.twig',[
-    //         'product' => $product
-    //     ]);
-    // }
+        return $this->render('main/show.html.twig',[
+            'product' => $product
+        ]);
+    }
 
     #[Route('/main/new', name:'product_new')]
-    public function new()
+    public function new(Request $request, EntityManagerInterface $manager,  )
     {
-        return $this->render("main/form.html.twig");
+      
+        
+            $product = new Product;
+          
+        
+        
+        $form = $this->createForm(ProductType::class, $product);
+        //dd($request);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid() )
+        {
+            $product->setCreatedAt(new DateTime());
+            $manager->persist($product);
+            $manager->flush();
+
+            return $this->redirectToRoute('product_show',[
+                'id'=> $product->getId()
+            ]);
+
+        }
+
+        return $this->render("main/form.html.twig",[
+            'formProduct' => $form->createView()
+        ]);
     }
 
 

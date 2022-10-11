@@ -1,1 +1,24 @@
 {% extends "base.html.twig" %}
+
+{% block body %}
+
+<h1>Nouveau Produit</h1>
+<form >
+<fieldset >
+<div class="container"></div>
+{{form_start(formProduct) }}
+
+{{ form_row(formProduct.titre) }}
+{{ form_row(formProduct.description) }}
+{{ form_row(formProduct.couleur) }}
+{{ form_row(formProduct.taille) }}
+{{ form_row(formProduct.collection) }}
+{{ form_row(formProduct.photo) }}
+{{ form_row(formProduct.prix) }}
+{{ form_row(formProduct.stock) }}
+
+<button type="submit" class="btn btn-primary">Envoyer</button>
+{{form_end(formProduct) }}
+</fieldset>
+</form>
+{% endblock %}
