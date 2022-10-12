@@ -2,5 +2,30 @@
 
 {% block body %}
 
-<h1>show</h1>
+
+				<article class="col-md-4 mx-auto text-center border border-dark mb-3 p-3 mt-3 mr-1">
+					<h3 class="card-header">{{ product.titre }}</h3>
+					<img src="{{ product.photo }}" alt="Image du véhicule">
+					<div class="card-body">
+						<p class="card-text">{{ product.description }}</p>
+						<p class="card-text text-end fw-bold">{{ product.couleur }}€/j</p>
+                        <p class="card-text text-end fw-bold">{{ product.collection }}</p>
+                        <p class="card-text text-end fw-bold">{{ product.prix }}</p>
+						<div class="form-group">
+						<label for="exampleSelect1" class="form-label mt-4">Il nous reste {{ product.stock }} Tee-shirt en stock</label>
+						
+							
+					
+						</select>
+						</div>
+                        
+					</div>
+					
+						<div class="card-body text-end">
+                        <a href="{{ path('card_add', {id: product.id}) }}" class="card-link btn btn-primary">Ajouter au panier</a>
+                    </div>     
+					
+				</article>
+
+
 {% endblock %}

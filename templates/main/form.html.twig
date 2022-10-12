@@ -3,9 +3,9 @@
 {% block body %}
 
 <h1>Nouveau Produit</h1>
-<form >
-<fieldset >
-<div class="container"></div>
+
+
+
 {{form_start(formProduct) }}
 
 {{ form_row(formProduct.titre) }}
@@ -19,6 +19,6 @@
 
 <button type="submit" class="btn btn-primary">Envoyer</button>
 {{form_end(formProduct) }}
-</fieldset>
-</form>
+
+
 {% endblock %}

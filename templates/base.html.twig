@@ -20,7 +20,7 @@
                 <div class="collapse navbar-collapse" id="navbarColor01">
                     <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="{{ path('produit_home')}}">Nous produits
+                        <a class="nav-link active" href="{{ path('product_home')}}">Nous produits
                         <span class="visually-hidden">(current)</span>
                         </a>
                     </li>
@@ -28,7 +28,7 @@
                         <a class="nav-link" href="{{ path('product_new') }}">formulaire</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
+                        <a class="nav-link" href="{{ path('profil') }}">Mon profil</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">About</a>
@@ -39,7 +39,7 @@
             
             <form class="d-flex">
             {% if app.user %}
-                <a class="btn btn-primary" href="{{ path('app_main')}}">Déconnexion</a>
+                <a class="btn btn-primary" href="{{ path('app_logout')}}">Déconnexion</a>
             {% else %}
                 <a class="btn btn-primary" href="{{ path('app_login')}}">connexion</a>
                 <a class="btn btn-primary" href="{{ path('app_register') }}">Inscription</a>
@@ -47,6 +47,11 @@
             </form>
             </div>
         </div>
+        
+
+        {% if is_granted('ROLE_ADMIN') %}  
+        <a href="{{ path('admin') }}" class="nav-link btn btn-secondary m-2 my-2 my-sm-0" >BACKOFFICE</a>
+        {% endif %}
 </nav>
         {% block body %}{% endblock %}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/js/bootstrap.bundle.min.js" integrity="sha512-BOsvKbLb0dB1IVplOL9ptU1EYA+LuCKEluZWRUYG73hxqNBU85JBIBhPGwhQl7O633KtkjMv8lvxZcWP+N3V3w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

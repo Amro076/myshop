@@ -1,0 +1,34 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+
+
+
+
+
+<h1 class="text-center">Liste de vos commandes</h1>
+
+<table class="table">
+<thead>
+    <tr>
+        <th>Quantity</th>
+        <th>Montant</th>
+        <th>etat</th>
+        
+        
+    </tr>
+</thead>
+<tbody>
+{% for commande in commandes %}
+    <tr>
+    <td>{{commande.product}}</td>
+    <td>{{commande.montant}}</td>
+    <td>{{ commande.etat}}</td>
+
+    </tr>
+{% endfor %}
+</tbody>
+</table>
+
+{% endblock %}
