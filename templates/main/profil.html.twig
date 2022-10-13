@@ -27,9 +27,12 @@
 <table class="table">
 <thead>
     <tr>
+        
+        
         <th>Quantity</th>
         <th>Montant</th>
-        <th>etat</th>
+        <th>Etat</th>
+        
         
         
     </tr>
@@ -37,9 +40,12 @@
 <tbody>
 {% for commande in commandes %}
     <tr>
+    
+    
     <td>{{ commande.product}}</td>
     <td>{{ commande.montant}}</td>
     <td>{{ commande.etat}}</td>
+    <td></td>
 
 
     </tr>

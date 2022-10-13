@@ -31,6 +31,7 @@ class CardController extends AbstractController
     {
         
         $cs->add($id);
+
         return $this->redirectToRoute('app_card');
     }
 
@@ -40,6 +41,8 @@ class CardController extends AbstractController
         $cs->remove($id);
         return $this->redirectToRoute('app_card');
     }
+
+    
 
 
 

@@ -75,8 +75,11 @@ class MainController extends AbstractController
     {       
             $cardWithData = $cs->getCardWithData();
 
+           
+
             foreach ($cardWithData as $item) 
             
+            $stock = $item['product']->getStock();
             
             {
                 $commande =new Commande;
@@ -86,7 +89,11 @@ class MainController extends AbstractController
             $commande->setProduct($item ['product']);
             $commande->setQuantity($item['Quantity']);
             $commande->setEtat('en cours de traitement');
-            $quantity=$item['Quantity'];
+            
+            $quantity = $item['Quantity'];
+
+                
+                           
             
             $prixunitaire=$item['product']->getPrix();
             
@@ -95,20 +102,24 @@ class MainController extends AbstractController
             $montant =$quantity * $prixunitaire;
 
              $commande->setMontant($montant);
-             //dd($commande);
              
-         
+             
+                    
              
          
 
-
-            $manager->persist($commande); 
-            $manager->flush();
-           
-            }
             
-            $this->addFlash('success', "Votre commande est en cours de traitement");
-            return $this-> redirectToRoute('app_main');
+            $manager->persist($commande); 
+        
+            $manager->flush();
+          
+        }
+            
+        
+
+            return $this-> redirectToRoute('product_home');
+
+        
 
         
         
@@ -126,15 +137,6 @@ class MainController extends AbstractController
     }
 
    
-
-
-
-
-
-  
-
-
-
 
 
 }
