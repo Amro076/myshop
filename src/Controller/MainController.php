@@ -11,6 +11,7 @@ use App\Form\CommandeType;
 use App\Repository\MembreRepository;
 use App\Repository\ProductRepository;
 use App\Repository\CommandeRepository;
+use App\Service\CardService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -69,34 +70,50 @@ class MainController extends AbstractController
             'formProduct' => $form->createView()
         ]);
     }
-    // #[Route('/main/commande/{id}' , name:"commande_product")]
-    // public function commande(EntityManagerInterface $manager, Request $request, ProductRepository $repo, $id)
-    // {
-    //         $commande =new Commande;
-    //         $product = $repo->find($id);
+    #[Route('/main/commande' , name:"commande_product")]
+    public function commande(EntityManagerInterface $manager, Request $request, ProductRepository $repo, CardService $cs)
+    {       
+            $cardWithData = $cs->getCardWithData();
+
+            foreach ($cardWithData as $item) 
             
-    //         $form = $this->createForm(CommandeType::class,$commande);
-    //         //dd($request);
-    //         $form->handleRequest($request);
             
-    //         if($form->isSubmitted() && $form->isValid())
-    //     {
-    //         $commande->setMembr($this->getUser());
-    //         $commande->setcreatedAt(new \DateTime());
-    //         $commande->setProduct($product);
+            {
+                $commande =new Commande;
+
+            $commande->setMembr($this->getUser());
+            $commande->setcreatedAt(new \DateTime());
+            $commande->setProduct($item ['product']);
+            $commande->setQuantity($item['Quantity']);
+            $commande->setEtat('en cours de traitement');
+            $quantity=$item['Quantity'];
+            
+            $prixunitaire=$item['product']->getPrix();
+            
 
 
-    //         $manager->persist($commande); 
-    //         $manager->flush();
-    //         $this->addFlash('success', "Votre commande est en cours de traitement");
-    //         return $this-> redirectToRoute('app_main');
+            $montant =$quantity * $prixunitaire;
 
-    //     }
-    //     return $this->renderForm('locvoiture/commande.html.twig', [
-    //         'formCommande' => $form
-    //     ]);
+             $commande->setMontant($montant);
+             //dd($commande);
+             
+         
+             
+         
 
-    // }
+
+            $manager->persist($commande); 
+            $manager->flush();
+           
+            }
+            
+            $this->addFlash('success', "Votre commande est en cours de traitement");
+            return $this-> redirectToRoute('app_main');
+
+        
+        
+
+    }
     
     #[Route('/main/profil', name:"profil")]
     public function profil(CommandeRepository $repo)

@@ -2,8 +2,23 @@
 
 {% block body %}
 
-
-
+<div class=" row justify-content-center">
+<div class="alert alert-dismissible alert-success  " >
+    
+            <div class="card-header"> <h3>Bonjour {{app.user.Pseudo}}</h3></div>
+            <div class="card-body container">
+            <div class="row">
+            <h4 class="card-title col-12">Vos informations</h4>
+                <br><hr><br>
+                <h4 class="subtitle col-6">Nom : {{app.user.nom}}</h4>
+                <h4 class="subtitle col-6">Prenom : {{app.user.prenom}}</h4>
+                
+                <h4 class="col-6 subtitle">Email : {{app.user.email}}</h4>
+                <h4 class="col-6 subtitle">Civilité : {{app.user.civilite}}</h4>
+            </div>
+            </div>
+    </div>
+</div>
 
 
 
@@ -22,9 +37,10 @@
 <tbody>
 {% for commande in commandes %}
     <tr>
-    <td>{{commande.product}}</td>
-    <td>{{commande.montant}}</td>
+    <td>{{ commande.product}}</td>
+    <td>{{ commande.montant}}</td>
     <td>{{ commande.etat}}</td>
+
 
     </tr>
 {% endfor %}

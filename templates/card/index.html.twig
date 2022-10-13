@@ -25,13 +25,12 @@
                 <tr>
                     <td>{{ item.product.titre }}</td>
                     <td>{{ item.product.prix }}</td>
-                    <td>{{ item.quantity }}</td>
-                    <td>{{ item.product.prix * item.quantity }}€</td>
+                    <td>{{ item.Quantity }}</td>
+                    <td>{{ item.product.prix * item.Quantity }}€</td>
                     <td> 
                     <a href="{{ path('card_remove', {id:item.product.id}) }}" class="btn-sm btn-danger">
                         <i class="fas fa-trash"></i>
                     </a> 
-                    
                     </td>
                 </tr>
 
@@ -41,7 +40,8 @@
         <tfoot>
             <td colspan="3" class="text-end">Total</td>
             <td>{{ total }}€</td>
-            <button type="submit" class="btn btn-success">Valider votre panier</button>
+            <a href="{{ path('commande_product') }}" type="submit" class="btn btn-success">Valider votre panier</a>
+           
         </tfoot>
     
         

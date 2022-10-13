@@ -25,15 +25,17 @@ class CommandeCrudController extends AbstractCrudController
             IntegerField::new('Quantity'),
             IntegerField::new('montant'),
             ChoiceField::new('etat')->setChoices([
-                'En cours de traitement' => '1',
-                    'Envoyé' => '2',
-                    'Livré' => '3',
+                'En cours de traitement'  => 'En cours de traitement',
+                'Envoyé' => 'Envoyé',
+                'Livré'  => 'Livré',
                     
             ]),
             DateTimeField::new('createdAt')->setFormat("d/M/Y à H:m:s"),
             AssociationField::new('membr')->renderAsNativeWidget(),
             AssociationField::new('product')->renderAsNativeWidget(),
         ];
+
+
     }
     
 }
