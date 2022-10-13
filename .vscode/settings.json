@@ -1,0 +1,17 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "askForPassword": true,
+            "driver": "MySQL",
+            "database": "mysql://q6jzaxht8zjxxzhc:gkfwm6vwsl46koso@ltnya0pnki2ck9w8.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/k2ehprzwva4iecin",
+            "name": "myshop",
+            "connectString": "mysql://q6jzaxht8zjxxzhc:gkfwm6vwsl46koso@ltnya0pnki2ck9w8.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/k2ehprzwva4iecin"
+        }
+    ]
+}
