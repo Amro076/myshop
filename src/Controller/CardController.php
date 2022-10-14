@@ -42,7 +42,7 @@ class CardController extends AbstractController
         return $this->redirectToRoute('app_card');
     }
 
-    
+   
 
 
 

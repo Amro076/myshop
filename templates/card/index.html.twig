@@ -12,23 +12,28 @@
     <table class="table">
         <thead>
             <tr>
+                <th>Photo</th>
+                <th>Couleur</th>
                 <th>Produit</th>
                 <th>Prix</th>
                 <th>Quantité</th>
                 <th>Total</th>
                 <th></th>
+                
             </tr>
         </thead>
         <tbody>
             {% for item in items %}
 
                 <tr>
+                    <td><img src="{{item.product.photo}}" class"width="60" height="60"" alt=""></td>
+                    <td>{{ item. product.couleur}}</td>
                     <td>{{ item.product.titre }}</td>
                     <td>{{ item.product.prix }}</td>
                     <td>{{ item.Quantity }}</td>
-                    <td>{{ item.product.prix * item.Quantity }}€</td>
+                    <td >{{ item.product.prix * item.Quantity }}€</td>
                     <td> 
-                    <a href="{{ path('card_remove', {id:item.product.id}) }}" class="btn-sm btn-danger">
+                    <a href="{{ path('card_remove', {id:item.product.id}) }}" >
                         <i class="fas fa-trash"></i>
                     </a> 
                     </td>

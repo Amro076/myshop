@@ -91,27 +91,21 @@ class MainController extends AbstractController
             $commande->setEtat('en cours de traitement');
             
             $quantity = $item['Quantity'];
-
-                
-                           
             
             $prixunitaire=$item['product']->getPrix();
             
-
-
             $montant =$quantity * $prixunitaire;
 
-             $commande->setMontant($montant);
+            $commande->setMontant($montant);
              
-             
-                    
-             
-         
-
-            
+            $stock= $item['product']->getStock();
+            $stock -= $item['Quantity'];
+            $item['product']->setStock($stock);
+                               
             $manager->persist($commande); 
         
             $manager->flush();
+            $this->get('session')->clear();
           
         }
             

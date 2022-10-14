@@ -2,12 +2,12 @@
 
 {% block body %}
 
-<section class="row articles">
- <div class="row">
+<section class="mx-3 d-flex justify-content-around">
+ 
  
 		{% for product in products %}
-
-        <article class="col-md-4 mx-auto text-center border border-dark m-5 p-5">
+	
+        <article class=" mx-3 text-center border border-dark m-5 p-5">
 			
 				
 					<h3 class="card-header">{{ product.titre }}</h3>
@@ -15,11 +15,12 @@
 					<img src="{{ product.photo }}" class="w-100" alt="Image du véhicule">
 					<div class="card-body">
 						<p class="card-text">{{ product.description }}</p>
-						<p class="card-text text-end fw-bold">{{ product.couleur }}€</p>
+						<p class="card-text text-end fw-bold">{{ product.couleur }}</p>
                         <p class="card-text text-end fw-bold">{{ product.collection }}</p>
-                        <p class="card-text text-end fw-bold">{{ product.prix }}</p>
+                        <p class="card-text text-end fw-bold">{{ product.prix }}€</p>
                         <p class="card-text text-end fw-bold">{{ product.stock }}</p>
 					</div>
+				
 					<div class="card-body text-end">
 						<a href="{{ path('product_show', {id: product.id}) }}" class="card-link btn btn-primary">Voir l'article</a>
 					</div>
@@ -28,14 +29,6 @@
 			
         </article>
 		{% endfor %}
-
-
-
-
-
-
-
-
 
  
 </section>
