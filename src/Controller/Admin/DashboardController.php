@@ -37,8 +37,8 @@ class DashboardController extends AbstractDashboardController
         MenuItem::section('Membre'),
         MenuItem::linkToCrud('Utilisateurs', 'fas fa-user', Membre::class),
         MenuItem::section('Commande'),
-        MenuItem::linkToCrud('Commande', 'fas fa-user', Commande::class)
-
+        MenuItem::linkToCrud('Commande', 'fas fa-user', Commande::class),
+        MenuItem::linkToRoute('Menu_prancipale', 'fas fa-home', 'product_home')
     ];
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
     }

@@ -97,14 +97,26 @@ class MainController extends AbstractController
             $montant =$quantity * $prixunitaire;
 
             $commande->setMontant($montant);
-             
+            
+           
             $stock= $item['product']->getStock();
+            if($stock == 0)
+            {
+               
+                return $this->redirectToRoute("product_home");
+                
+            }else
+            {
             $stock -= $item['Quantity'];
             $item['product']->setStock($stock);
-                               
+
             $manager->persist($commande); 
         
             $manager->flush();
+
+            }
+                               
+           
             $this->get('session')->clear();
           
         }
