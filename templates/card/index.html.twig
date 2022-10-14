@@ -5,6 +5,7 @@
 {% block body %}
 <h1 class="text-center">Votre panier</h1>
 
+{% if app.user %}
 
 {% if items %}
 {#  si j'ai des produits dans mon panier, j'affiche son contenu #}
@@ -56,6 +57,13 @@
     <div class="text-center">
     <span class="badge bg-info">Votre panier est vide</span>
     </div>
+{% endif %}
+{% else %}
+    
+    <div class="alert alert-dismissible alert-danger text-center">
+  
+  <strong>Connectez-vous pour commander!</strong></div>
+
 {% endif %}
 
 
