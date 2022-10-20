@@ -141,6 +141,16 @@ class MainController extends AbstractController
             'commandes'=>$commandes
         ]);
     }
+    #[Route('/portfoilo', name:'portfolio')]
+    public function portfolio()
+    {
+      return $this->render("portfolio/index.html.twig");  
+    }
+    #[Route('/portfoilo/crea', name:'creation')]
+    public function creation()
+    {
+      return $this->render("portfolio/création.html.twig");
+    }
 
    
 

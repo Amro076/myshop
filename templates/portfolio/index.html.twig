@@ -1,0 +1,74 @@
+{% extends "base.html.twig" %}
+{% block body %}
+<body>
+    <header>
+        <ul>
+            <li><a href="./index.html">Accueil</a></li>
+            <li> <a href="./parcours.html" target="_blank">Parcours</a></li>
+            <li><a href="{{ path('creation') }}" target="_blank">Diplômes et Awards</a></li>
+        </ul>
+       
+    </header>
+    <main>
+        <div id="head">
+            <div id="pres1">
+                <h1 class="titre">AMRO IBRAHIM</h1>
+                <h3 class="titre">DEVELOPPEUR</h3>
+                <img src="./assets/photo.jpg" alt="photo" width="250" height="250">
+            </div>
+            <div id="pres2">
+                <p> Un profil stable doté d’un savoir-faire et d’un savoir-être. <br>
+                    Forte capacité d’adaptation et une bonne aisance relationelle. <br>
+                    Tout ceci m’a permis
+                    d’acquérir des compétences pour développer mon engagement professionnel.
+                </p>
+                
+
+            </div>
+            <div id="pres3">
+                <h4 class="sous_titre">SOFT SKILLS</h4>
+                <p><br> Ecoute active <br> Analyse <br> Résilience <br> Autonomie <br> Organisation
+                    </p>
+            </div>
+            <div id="pres4">      
+                <h4 class="sous_titre">HARD SKILLS</h4>
+                <p><br> Développeur Full Stack <br> Business Developer <br> Management d'un centre de profit </p>
+            </div>
+            <div id="pres5">
+                <p> Une longue expérience managériale dans la gestion d'un centre de profit.
+                Une formation basée sur la pratique pendant 4 mois dans le secteur de la <strong>Tech</strong>
+                en tant que Business Developer. <br>
+                Enfin une formation diplomante en tant que Développeur Full Stack pour former le triangle d'un business moderne.    
+                </p>
+            </div>  
+        </div><br>   
+    </main>
+    <footer>
+        <div id="footer1">
+            <H4>Je serai ravi de mettre mes connaissances et mon savoir à votre service. <br>Pour me contacter...</H4>
+            </div>
+        <div id="logo">
+            <div class="footer2">
+                <p class="coordo"><img src="./assets/icone_telephone.jpg" height="20" width="20" alt="icone telephone"> : +33 (0)6.72.35.24.80</p>
+                <p class="coordo"><img src="./assets/icon_mail.png" alt="" width="20" height="20"> : amro.ibrahim076@gmail.com</p>
+            </div>
+            <div class="footer2">
+                <p class="coordo"><img src="./assets/icon_linkedin.png" alt="" width="20" height="20"> : <a class="lien_net" href="https://www.linkedin.com/in/amroibrahim76/">https://www.linkedin.com/in/amroibrahim76/</a> </p>
+                <p class="coordo"><img src="./assets/logo_github.png" alt="" width="20" height="20"> : <a class="lien_net" href="https://github.com/Amro076"> https://github.com/Amro076</a></p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
